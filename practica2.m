@@ -22,6 +22,7 @@ x2 = @(n) (u(n+5)-u(n-1))-1.*(u(n-1)-u(n-6));
 
 n = -16:16;
 %stem(n, x1(mod(n-6, 11)-5), "filled", "LineWidth", 2)
+stem(n, x1(mod(n-6, 11)), "filled", "LineWidth", 2)
 n = -12:12;
 %stem(n, x2(2*n), "filled", "LineWidth", 2);
 %stem(n, x1(1-n)+x2(n+1), "filled", "LineWidth", 2);
