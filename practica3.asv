@@ -33,8 +33,8 @@ h2 = @(n) n.*(u(n+3)-u(n-4));
 h_ex = h2(mod(n-3, 7)-3);
 %stem(n+1, h_ex, "filled", "LineWidth", 2);
 
-cv3 = cconv(x1_ex,h_ex);
-n = -12:12;
+cv3 = cconv(x1_ex,h_ex)
+n = -20:20;
 stem(n, cv3, "filled", "LineWidth", 2);
 
 grid on;
