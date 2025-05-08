@@ -3,7 +3,7 @@ clear all;
 close all;
 
 u = @(n) n >= 0;
-n = -10:10;
+n = -4:4;
 %stem(n,u(n),"filled");
 
 x1 = @(n) ((4-abs(n)).*(u(n+3)-u(n-4)));
@@ -13,18 +13,17 @@ h = @(n) (u(n+3)-u(n-4));
 %stem(n, h(n), "filled", "LineWidth", 2);
 
 cv1 = conv(x1(n),h(n))
-n = -20:20;
+n = -8:8;
 %stem(n, cv1, "filled", "LineWidth", 2);
 
-%n = -11:9;
 n = -3:3;
 Lh = length(h(n))
 H = convmtx(h(n),Lh)
 y = x1(n)*H;
 n = -6:6;
-%n = -20:20;
-%stem(n, y, "filled", "LineWidth", 2);
+stem(n, y, "filled", "LineWidth", 2);
 
+n = -11:9;
 x1_ex = x1(mod(n-3, 7)-3);
 %stem(n+1, x1_ex, "filled", "LineWidth", 2);
 
@@ -34,7 +33,7 @@ h_ex = h2(mod(n-3, 7)-3);
 %stem(n+1, h_ex, "filled", "LineWidth", 2);
 
 cv3 = cconv(x1_ex,h_ex);
-n = -12:12;
-stem(n, cv3, "filled", "LineWidth", 2);
+n = -20:20;
+%stem(n, cv3, "filled", "LineWidth", 2);
 
 grid on;
