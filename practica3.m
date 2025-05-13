@@ -18,8 +18,9 @@ n = -8:8;
 
 n = -3:3;
 Lh = length(h(n))
-H = convmtx(h(n),Lh)
-y = x1(n)*H;
+H = convmtx(h(n)',Lh)
+%y = x1(n)*H;
+y = H*x1(n)';
 n = -6:6;
 stem(n, y, "filled", "LineWidth", 2);
 
@@ -32,8 +33,9 @@ h2 = @(n) n.*(u(n+3)-u(n-4));
 h_ex = h2(mod(n-3, 7)-3);
 %stem(n+1, h_ex, "filled", "LineWidth", 2);
 
-cv3 = cconv(x1_ex,h_ex);
-n = -20:20;
+n = -3:3;
+cv3 = cconv(x1_ex,h_ex, 21);
+n = -10:10;
 %stem(n, cv3, "filled", "LineWidth", 2);
 
 grid on;
